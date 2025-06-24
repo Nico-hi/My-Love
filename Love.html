@@ -64,6 +64,11 @@
     .hearts span {
       display: block;
     }
+    #My_love {
+  width: 500px; /* Imagen más grande */
+  height: auto;
+}
+
 
     /* Animaciones */
     @keyframes fadeIn {
@@ -144,9 +149,9 @@
     }
   </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
   <!-- Encabezado principal -->
-  <h1>Happy Birthday Ariya<br>(My Honey 💕💞)</h1>
+  <h1>Happy Birthday My Love<br>(Here his/her name 💕💞)</h1>
 
   <!-- Emoji pastel animado -->
   <div class="cake">🎂</div>
@@ -166,16 +171,12 @@
 
 <script>
     const messages = [
-      "Hi Ariya (my honey), there are so many things I’d love to tell you, but these are the most important ones 💌",
-      "I hope today is filled with laughter, love, and the warmest hugs from the people who care about you 🎉🤗",
-      "May all your dreams come true, and may life always guide you to beautiful places ✨🌈",
-      "You deserve all the happiness in the world, and I’ll always be here cheering for you every step of the way 💖",
-      "Your smile is my favorite view; never stop sharing it with the world 😊🌸",
-      "You inspire me every single day with your strength, your kindness, and your light 🌟",
-      "Keep being the incredible woman I fell in love with; brave, passionate, and full of love 💕",
-      "Thank you for being you. I’m so lucky to have you in my life, and I can't wait to make more memories together 🌍💑",
-      "No matter the distance or the time, my heart is always with you ❤️⏳",
-      "Happy Birthday, my forever love. Let’s celebrate the amazing soul that you are today and every day 🎂🎁"
+      "First paragraph",
+      "Second paragraph",
+      "Third paragraph",
+      "Fourth paragraph",
+      "Here you can continue with more paragraph",
+      " Te Amo / I❤U <br> <img id='My_love' src='Here you can put an image with a path or with Base64' alt='Imagen' width='100'>"
     ];
 
     let currentIndex = 0;
@@ -200,6 +201,7 @@
       currentIndex = (currentIndex + 1) % messages.length;
     }
 </script>
+
 
 </body>
 </html>

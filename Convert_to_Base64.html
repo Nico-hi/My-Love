@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Mostrar imagen</title>
+<style>
+  body {
+    background-color: bisque;
+    text-align: center;
+    color: #000;
+    font-family: monospace;
+  }
+
+#previewImage {
+  display: block;
+  margin: 20px auto;
+  max-width: 90%;
+  max-height: 300px;
+  height: auto;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+}
+
+
+  #codigoBase64 {
+    width: 90vw;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 15px;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #333;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+    overflow-x: auto;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  }
+
+  button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #555;
+}
+
+</style>
+</head>
+<body>
+  <input type="file" id="inputImagen">
+  <br>
+  <img id="previewImagen" />
+  <button onclick="copiarCodigo()">Copiar Base64</button>
+<pre id="codigoBase64">Aquí aparecerá el código Base64...</pre>
+  <script>
+    document.getElementById('inputImagen').addEventListener('change', function(event) {
+      let reader = new FileReader();
+      reader.onload = function() {
+        let base64 = reader.result;
+        console.log(base64); // Solo si quieres verlo por consola
+
+        // Mostrar imagen
+        let img = document.getElementById('previewImagen');
+        img.src = base64;
+        img.style.display = 'block';
+
+        // Mostrar código Base64
+        document.getElementById('codigoBase64').textContent = base64;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    });
+
+      function copiarCodigo() {
+    const texto = document.getElementById("codigoBase64").textContent;
+    navigator.clipboard.writeText(texto).then(() => {
+      alert("¡Código copiado al portapapeles!");
+    }).catch(err => {
+      alert("Error al copiar: " + err);
+    });
+  }
+
+  </script>
+</body>
+</html>
